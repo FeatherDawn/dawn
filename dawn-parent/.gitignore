@@ -1,0 +1,5 @@
+## .gitignore for intellij
+*.iml
+*.ipr
+*.iws
+.idea/
