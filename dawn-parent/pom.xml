@@ -7,6 +7,9 @@
     <groupId>org.ycx.dawn</groupId>
     <artifactId>dawn-parent</artifactId>
     <version>1.0.0</version>
+    <modules>
+        <module>dawn-algorithm</module>
+    </modules>
     <packaging>pom</packaging>
 
 
