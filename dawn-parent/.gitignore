@@ -1,8 +1,23 @@
-## .gitignore for intellij
+target/
+logs/
+
+## IntelliJ IDEA
+.idea
+*.iws
 *.iml
 *.ipr
-*.iws
-.idea
+.mvn
+mvnw
+mvnw.cmd
+*.settings
+*.gitignore
+
+## Eclipse
+*.project
+*.classpath
+
+##thrid plugin
+rebel.xml
 
 
 
