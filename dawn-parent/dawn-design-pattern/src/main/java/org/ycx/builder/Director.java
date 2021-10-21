@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
+ * 建造者模式-控制Builder的生产过程
+ *
  * @author :     guowc
  * @version :    1.0
  * @package :    org.ycx.builder
