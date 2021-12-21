@@ -1,24 +1,31 @@
+HELP.md
 target/
-logs/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
-## IntelliJ IDEA
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-.mvn
-mvnw
-mvnw.cmd
-*.settings
-*.gitignore
 
-## Eclipse
-*.project
-*.classpath
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
 
-##thrid plugin
-rebel.xml
-
-
-
-
+### VS Code ###
+.vscode/

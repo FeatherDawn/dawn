@@ -1,7 +1,10 @@
 package org.ycx.lesson.leetcode.array;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -40,8 +43,10 @@ public class ThreeSum {
      * @author : guowc
      * @date : 2021/10/20 18:34
      **/
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String filePath= "订单发货列表202111101538.xlsx";
+        String fileName = new String(filePath.getBytes("GBK"),"GBK");
+        System.out.println(fileName);
     }
 
 
@@ -54,7 +59,7 @@ public class ThreeSum {
      * @author : guowc
      * @date : 2021/10/20 18:40
      **/
-    public static List<List<Integer>> threeSum(Integer[] nums) {
+    public static List<List<Integer>> threeSum1(Integer[] nums) {
 
         ArrayList<List<Integer>> resultList = new ArrayList<>();
         int temp;
@@ -79,4 +84,53 @@ public class ThreeSum {
         return resultList;
     }
 
+
+    /**
+     * 双指针
+     *
+     * @param nums
+     * @return : List<List<Integer>>
+     * @author : guowc
+     * @date : 2021/11/2 18:54
+     **/
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        List<List<Integer>> resultList = new ArrayList<>();
+        //特殊情况校验
+        if (nums.length < 3) {
+            return resultList;
+        }
+        //数组排序
+        Arrays.sort(nums);
+        //双指针
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                return resultList;
+            }
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int l = i + 1;
+            int r = nums.length - 1;
+            while (l < r) {
+                if (nums[i] + nums[l] + nums[r] == 0) {
+                    resultList.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                    while (l < r && nums[l] == nums[l + 1]) {
+                        l++;
+                    }
+                    while (l < r && nums[r] == nums[r - 1]) {
+                        r--;
+                    }
+                    l++;
+                    r--;
+                } else if (nums[i] + nums[l] + nums[r] < 0) {
+                    l++;
+                } else {
+                    r--;
+                }
+
+            }
+        }
+        return resultList;
+    }
 }

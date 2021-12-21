@@ -2,6 +2,8 @@ package org.ycx.sort.primary.example;
 
 import edu.princeton.cs.algs4.StdIn;
 
+import java.util.Scanner;
+
 /**
  * 初级排序算法例子.
  * @author :     guowc
@@ -44,11 +46,12 @@ public class Example {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
         String[] a = StdIn.readAllStrings();
         sort(a);
         assert isSorted(a);
         show(a);
-
     }
 
 }
