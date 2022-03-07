@@ -44,15 +44,14 @@ public class ThreeSum {
      * @date : 2021/10/20 18:34
      **/
     public static void main(String[] args) throws UnsupportedEncodingException {
-        String filePath= "订单发货列表202111101538.xlsx";
-        String fileName = new String(filePath.getBytes("GBK"),"GBK");
-        System.out.println(fileName);
+        int[] nums = {-1,0,1,2,-1,-4};
+        threeSum2(nums);
     }
 
 
     /**
      * 解法一: 暴力循环
-     * 时间复杂度T(n) = O(f(n³))  空间复杂度为 O(n)
+     * 时间复杂度T(n) = O(n³)  空间复杂度为 O(n)
      *
      * @param nums
      * @return : List<List<Integer>>
@@ -86,7 +85,7 @@ public class ThreeSum {
 
 
     /**
-     * 双指针
+     * 排序 + 双指针
      *
      * @param nums
      * @return : List<List<Integer>>
@@ -94,43 +93,31 @@ public class ThreeSum {
      * @date : 2021/11/2 18:54
      **/
     public static List<List<Integer>> threeSum2(int[] nums) {
-        List<List<Integer>> resultList = new ArrayList<>();
-        //特殊情况校验
-        if (nums.length < 3) {
-            return resultList;
+
+        //入参校验【长度小于3,或者为空】
+        if(nums == null || nums.length < 3){
+            return null;
         }
-        //数组排序
+
+        //数组不为空,且长度足够
         Arrays.sort(nums);
-        //双指针
         for (int i = 0; i < nums.length; i++) {
+            //因为已经排序 第一个数及最小数 最小数大于0 三数相加不可能为0
             if (nums[i] > 0) {
-                return resultList;
+                break;
             }
-            if (i > 0 && nums[i] == nums[i - 1]) {
+
+            //定义双指针
+            int left = i+1;
+            int right = nums.length - 1;
+
+            //去重
+            if (i > 0 && nums[i] == nums[i-1]){
                 continue;
             }
-
-            int l = i + 1;
-            int r = nums.length - 1;
-            while (l < r) {
-                if (nums[i] + nums[l] + nums[r] == 0) {
-                    resultList.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    while (l < r && nums[l] == nums[l + 1]) {
-                        l++;
-                    }
-                    while (l < r && nums[r] == nums[r - 1]) {
-                        r--;
-                    }
-                    l++;
-                    r--;
-                } else if (nums[i] + nums[l] + nums[r] < 0) {
-                    l++;
-                } else {
-                    r--;
-                }
-
-            }
         }
-        return resultList;
+        System.out.println(Arrays.toString(nums));
+        return null;
+
     }
 }
