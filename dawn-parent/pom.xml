@@ -26,8 +26,7 @@
         <easyexcel.version>3.0.5</easyexcel.version>
         <lombok.versrion>1.18.20</lombok.versrion>
     </properties>
-
-
+    
     <dependencyManagement>
         <dependencies>
         <!--architecture start-->
