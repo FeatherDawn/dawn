@@ -44,8 +44,9 @@ public class ThreeSum {
      * @date : 2021/10/20 18:34
      **/
     public static void main(String[] args) throws UnsupportedEncodingException {
-        int[] nums = {-1,0,1,2,-1,-4};
-        threeSum2(nums);
+        int[] nums = {-1, 0, 1, 2, -1, -4};
+        List<List<Integer>> resultList = threeSum2(nums);
+        System.out.println(resultList);
     }
 
 
@@ -94,8 +95,11 @@ public class ThreeSum {
      **/
     public static List<List<Integer>> threeSum2(int[] nums) {
 
+        //定义存放结果的集合
+        List<List<Integer>> resultList = new ArrayList();
+
         //入参校验【长度小于3,或者为空】
-        if(nums == null || nums.length < 3){
+        if (nums == null || nums.length < 3) {
             return null;
         }
 
@@ -107,17 +111,32 @@ public class ThreeSum {
                 break;
             }
 
-            //定义双指针
-            int left = i+1;
-            int right = nums.length - 1;
-
             //去重
-            if (i > 0 && nums[i] == nums[i-1]){
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-        }
-        System.out.println(Arrays.toString(nums));
-        return null;
 
+            //定义双指针
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                if (nums[i] + nums[left] + nums[right] == 0) {
+                    resultList.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right - 1]) {
+                        right--;
+                    }
+                    left++;
+                    right--;
+                } else if (nums[i] + nums[left] + nums[right] < 0) {
+                    left++;
+                } else if (nums[i] + nums[left] + nums[right] > 0) {
+                    right--;
+                }
+            }
+        }
+        return resultList;
     }
 }
