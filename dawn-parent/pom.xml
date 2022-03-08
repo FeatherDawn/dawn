@@ -11,6 +11,7 @@
         <module>dawn-algorithm</module>
         <module>dawn-design-pattern</module>
         <module>dawn-analyze</module>
+        <module>dawn-multithreading</module>
     </modules>
     <packaging>pom</packaging>
 
