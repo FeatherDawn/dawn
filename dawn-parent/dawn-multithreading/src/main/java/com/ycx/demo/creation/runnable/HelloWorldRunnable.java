@@ -1,4 +1,4 @@
-package com.ycx.demo.thread.runnable;
+package com.ycx.demo.creation.runnable;
 
 /**
  * 创建线程(实现Runnable接口)

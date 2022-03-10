@@ -1,4 +1,4 @@
-package com.ycx.demo.thread.thread;
+package com.ycx.demo.creation.thread;
 
 /**
  * 创建线程(继承Thread类)
